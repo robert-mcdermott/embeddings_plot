@@ -1,15 +1,20 @@
-# Word Embedding Visualization Tool
+# Embedding Plot Visualization Tool
 
-![example-plot](images/example.png)
+![example-plot](https://raw.githubusercontent.com/robert-mcdermott/embeddings_plot/main/images/example.png)
 
 ## Description
 
-This tool provides an easy way to visualize word embeddings using dimensionality reduction techniques (PCA or t-SNE) and clustering. It's particularly useful for analyzing and understanding high-dimensional word embedding models.
+Word embeddings transform words to highly-dimensional vectors. The vectors attempt to capture the semantic meaning and relationships of the words, so that similar or related words have similar vectors. For example "Cat", "Kitten", "Feline", "Tiger" and "Lion" would have embedding vectors that are similar to varying degree, but would all be very dissimilar to a word like "Toolbox".
+
+The Word2Vec embedding model has 300 dimensions that capture the semantic meaning of each word. It's not possible to visualize 300 dimensions, but we can use dimensional reduction techniques that project the dimensions to a 2 or 3 latent space that preserves much of the relationships that we can easily visualize. 
+
+Embedding-plot, is a command line utility that can visualize word embeddings using dimensionality reduction techniques (PCA or t-SNE) and clustering in a scatter plot. 
 
 ## Features
-- Support for various word embedding models
+
+- Supports Word2vec pretrained embedding models 
 - Dimensionality reduction using PCA or t-SNE
-- Clustering
+- Specify a number of clusters to identify in the plot
 - Interactive HTML output
 
 ## Installation
@@ -24,7 +29,7 @@ pip install embeddings_plot
 
 ### Embedding model
 
-To use this tool you have to either train your own embedding model or use and existing pretrained model. This tool expected the models to be in word2vec format. Two pretrained models ready to use are:
+To use this tool, you have to either train your own embedding model or use an existing pretrained model. This tool expected the models to be in word2vec format. Two pretrained models ready to use are:
 
 - https://dl.fbaipublicfiles.com/fasttext/vectors-english/wiki-news-300d-1M.vec.zip
 - https://dl.fbaipublicfiles.com/fasttext/vectors-english/crawl-300d-2M.vec.zip
@@ -41,12 +46,13 @@ embeddings-plot -m <model_path> -i <input_file> -o <output_file> --label
 ```
 
 ### Parameters
-- `-m`, `--model`: Path to the word embeddings model file.
-- `-i`, `--input`: Input text file with words to visualize.
-- `-o`, `--output`: Output HTML file for the visualization.
-- `-l`, `--labels`: (Optional) Show labels on the plot.
+- `-m`, `--model`: Path to the word embeddings model file
+- `-i`, `--input`: Input text file with words to visualize
+- `-o`, `--output`: Output HTML file for the visualization
+- `-l`, `--labels`: (Optional) Show labels on the plot
 - `-c`, `--clusters`: (Optional) Number of clusters for KMeans. Default is 5.
-- `-r`, `--rmethod`: (Optional) Method for dimensionality reduction (pca or tsne). Default is tsne.
+- `-r`, `--reduction`: (Optional) Method for dimensionality reduction (PCA or t-SNE). Default is t-SNE
+- `-t`, `--title`: (Optional) Sets the title of the output HTML page
 
 ### Example
 ```
