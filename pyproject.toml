@@ -5,7 +5,6 @@ description = "A command line utility to create plots of word embeddings"
 authors = ["Robert McDermott <robert.c.mcdermott@gmail.com>"]
 readme = "README.md"
 license = "APACHE 2.0"
-readme = "README.md"
 repository = "https://github.com/robert-mcdermott/embeddings_plot"
 keywords = ["word2vec", "nlp", "embeddings"]
 
