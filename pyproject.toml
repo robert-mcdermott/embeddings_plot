@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "embeddings-plot"
 version = "0.1.0"
-description = "A command line utility to create a plot word embeddings"
+description = "A command line utility to create plots of word embeddings"
 authors = ["Robert McDermott <robert.c.mcdermott@gmail.com>"]
 readme = "README.md"
 
