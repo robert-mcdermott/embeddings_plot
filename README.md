@@ -1,4 +1,4 @@
-# Embedding Plot Visualization Tool
+# Word Embeddings Visualization Tool
 
 ![example-plot](https://raw.githubusercontent.com/robert-mcdermott/embeddings_plot/main/images/example.png)
 
