@@ -51,7 +51,7 @@ embeddings-plot -m <model_path> -i <input_file> -o <output_file> --label
 - `-o`, `--output`: Output HTML file for the visualization
 - `-l`, `--labels`: (Optional) Show labels on the plot
 - `-c`, `--clusters`: (Optional) Number of clusters for KMeans. Default is 5.
-- `-r`, `--reduction`: (Optional) Method for dimensionality reduction (PCA or t-SNE). Default is t-SNE
+- `-r`, `--reduction`: (Optional) Method for dimensionality reduction (pca or tsne). Default is tsne
 - `-t`, `--title`: (Optional) Sets the title of the output HTML page
 
 ### Example
