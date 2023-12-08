@@ -141,11 +141,11 @@ def main():
 
     words = [word for word in wordlist if word not in unknown_words]
     embeddings = np.array(embeddings)
-    embeddings_3d = reduce_dimensions(embeddings, args.reduction, args.dimensions)
+    embeddings_d = reduce_dimensions(embeddings, args.reduction, args.dimensions)
     if args.dimensions == 3:
-        plot_embeddings_3d(embeddings, words, args)
+        plot_embeddings_3d(embeddings_d, words, args)
     else:
-        plot_embeddings(embeddings, words, args)
+        plot_embeddings(embeddings_d, words, args)
   
 
 if __name__ == "__main__":
