@@ -1,6 +1,12 @@
 # Word Embeddings Visualization Tool
 
+2D Plot Example:
+
 ![example-plot](https://raw.githubusercontent.com/robert-mcdermott/embeddings_plot/main/images/example.png)
+
+3D Plot Example:
+
+![example-plot](https://raw.githubusercontent.com/robert-mcdermott/embeddings_plot/main/images/example3d.png)
 
 ## Description
 
@@ -46,13 +52,17 @@ embeddings-plot -m <model_path> -i <input_file> -o <output_file> --label
 ```
 
 ### Parameters
-- `-m`, `--model`: Path to the word embeddings model file
-- `-i`, `--input`: Input text file with words to visualize
-- `-o`, `--output`: Output HTML file for the visualization
-- `-l`, `--labels`: (Optional) Show labels on the plot
-- `-c`, `--clusters`: (Optional) Number of clusters for KMeans. Default is 5.
-- `-r`, `--reduction`: (Optional) Method for dimensionality reduction (pca or tsne). Default is tsne
-- `-t`, `--title`: (Optional) Sets the title of the output HTML page
+- `-h`,  `--help`: Show the help message and exit 
+- `-m`,  `--model`: Path to the word embeddings model file
+- `-i`,  `--input`: Input text file with words to visualize
+- `-o`,  `--output`: Output HTML file for the visualization
+- `-l`,  `--labels`: (Optional) Show labels on the plot
+- `-c`,  `--clusters`: (Optional) Number of clusters for KMeans. Default is 5.
+- `-r`,  `--reduction`: (Optional) Method for dimensionality reduction (pca or tsne). Default is tsne
+- `-t`,  `--title`: (Optional) Sets the title of the output HTML page
+- `-d`,  `--dimensions`: (Optional) Number of dimensions for the plot 2 (for 2D), or 3 (for 3D). Default is 2
+- `-th`, `--theme`: (Optional) Color theme for the plot: "plotly_white" or "plotly_dark" (default: plotly_white)
+
 
 ### Example
 ```
