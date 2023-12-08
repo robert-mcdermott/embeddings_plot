@@ -61,7 +61,7 @@ embeddings-plot -m <model_path> -i <input_file> -o <output_file> --label
 - `-r`,  `--reduction`: (Optional) Method for dimensionality reduction (pca or tsne). Default is tsne
 - `-t`,  `--title`: (Optional) Sets the title of the output HTML page
 - `-d`,  `--dimensions`: (Optional) Number of dimensions for the plot 2 (for 2D), or 3 (for 3D). Default is 2
-- `-th`, `--theme`: (Optional) Color theme for the plot: "plotly_white" or "plotly_dark" (default: plotly_white)
+- `-th`, `--theme`: (Optional) Color theme for the plot: "plotly", "plotly_white" or "plotly_dark" (default: plotly)
 
 
 ### Example
