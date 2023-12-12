@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 from sklearn.cluster import KMeans
+import umap
 from gensim.models import KeyedVectors
 import argparse
 
@@ -98,18 +99,19 @@ def reduce_dimensions(embeddings, method, dims):
 
     Parameters:
     embeddings (array): High-dimensional embeddings.
-    method (str): Dimensionality reduction method ('pca' or 'tsne').
-    dims (int): number of dimensions to reduce embeddings to. 
+    method (str): Dimensionality reduction method ('pca', 'tsne', or 'umap').
+    dims (int): Number of dimensions to reduce embeddings to. 
     """
     n_samples = embeddings.shape[0]
     if method == 'pca':
         reducer = PCA(n_components=dims)
     elif method == 'tsne':
-        # Adjust perplexity for small datasets
-        perplexity = min(30, max(n_samples // 3, 5))
+        perplexity = min(30, max(n_samples // 3, 5))  # Adjust perplexity for small datasets
         reducer = TSNE(n_components=dims, perplexity=perplexity, random_state=0)
+    elif method == 'umap':
+        reducer = umap.UMAP(n_components=dims)
     else:
-        raise ValueError("Invalid method: choose 'pca' or 'tsne'")
+        raise ValueError("Invalid method: choose 'pca', 'tsne', or 'umap'")
 
     return reducer.fit_transform(embeddings)
 
@@ -121,7 +123,7 @@ def main():
     parser.add_argument('-l', '--labels', action='store_true', help='Show labels on plot (default: False)')
     parser.add_argument('-c', '--clusters', type=int, default=5, help='Number of clusters for KMeans (default: 5)')
     parser.add_argument('-d', '--dimensions', type=int, default=2, help='Number of in the plot, "2" for 2D, "3" for 3D (default: 2)')
-    parser.add_argument('-r', '--reduction', choices=['pca', 'tsne'], default='tsne', help='Method for dimensionality reduction (default: tsne)')
+    parser.add_argument('-r', '--reduction', choices=['pca', 'tsne', 'umap'], default='tsne', help='Method for dimensionality reduction (default: tsne)')
     parser.add_argument('-t', '--title', required=False, default='Word Embeddings Visualization', help='Set the title for the plot')
     parser.add_argument('-th', '--theme', required=False, default='plotly', help='color theme for the plot: "plotly", "plotly_white" or "plotly_dark" (default: plotly)')
     args = parser.parse_args()
