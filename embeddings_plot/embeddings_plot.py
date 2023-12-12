@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 from sklearn.cluster import KMeans
@@ -76,15 +77,16 @@ def plot_embeddings_3d(embeddings, words, args):
     
     fig.update_layout(coloraxis_showscale=False)
 
-
     # Add text labels if required
     if args.labels == True:
         for i, row in df.iterrows():
-            fig.add_annotation(x=row['x'], y=row['y'], z=row['z'], text=row['word'],
-                               showarrow=False, yshift=10)
+            fig.add_trace(go.Scatter3d(x=[row['x']], y=[row['y']], z=[row['z']], 
+                                       mode='text', text=[row['word']],
+                                       textposition='middle center',
+                                       showlegend=False))
 
     # Update traces and layout for better readability
-    fig.update_traces(marker=dict(size=8, opacity=0.7))
+    fig.update_traces(marker=dict(size=6, opacity=0.7))
     fig.update_layout(hovermode='closest', showlegend=True)
     fig.update_layout(scene=dict(xaxis_showgrid=False, yaxis_showgrid=False, zaxis_showgrid=False))
     fig.write_html(args.output)
@@ -92,7 +94,7 @@ def plot_embeddings_3d(embeddings, words, args):
 
 def reduce_dimensions(embeddings, method, dims):
     """
-    Reduce the dimensions of embeddings to 2D.
+    Reduce the dimensions of embeddings to 2D or 3D.
 
     Parameters:
     embeddings (array): High-dimensional embeddings.
