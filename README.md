@@ -14,12 +14,12 @@ Word embeddings transform words to highly-dimensional vectors. The vectors attem
 
 The Word2Vec embedding model has 300 dimensions that capture the semantic meaning of each word. It's not possible to visualize 300 dimensions, but we can use dimensional reduction techniques that project the dimensions to a 2 or 3 latent space that preserves much of the relationships that we can easily visualize. 
 
-Embedding-plot, is a command line utility that can visualize word embeddings using dimensionality reduction techniques (PCA or t-SNE) and clustering in a scatter plot. 
+Embedding-plot, is a command line utility that can visualize word embeddings in either 2D or 3D scatter plots using dimensionality reduction techniques (PCA, t-SNE or UMAP) and clustering in a scatter plot. 
 
 ## Features
 
 - Supports Word2vec pretrained embedding models 
-- Dimensionality reduction using PCA or t-SNE
+- Dimensionality reduction using PCA, t-SNE and UMAP
 - Specify a number of clusters to identify in the plot
 - Interactive HTML output
 
