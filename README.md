@@ -29,22 +29,53 @@ Embedding-plot, is a command line utility that can visualize word embeddings in 
 - Python 3.9 or higher.
 
 ### Install via pip
+
+embeddings_plot has been published to PyPI as a module that can be installed with pip, which will make the "embeddings-plot" command available in your environment:
+
 ```
 pip install embeddings_plot 
 ```
 
 ### Embedding model
 
-To use this tool, you have to either train your own embedding model or use an existing pretrained model. This tool expected the models to be in word2vec format. Two pretrained models ready to use are:
+To use this tool, you have to either train your own embedding model or use an existing pretrained model. This tool expected the models to be in word2vec format. 
+
+#### Downloading existing pretrained models 
+
+Two pretrained models ready to use are:
 
 - https://dl.fbaipublicfiles.com/fasttext/vectors-english/wiki-news-300d-1M.vec.zip
 - https://dl.fbaipublicfiles.com/fasttext/vectors-english/crawl-300d-2M.vec.zip
 
-Download one these models and unzip it, train your own model, or look for other pretrained word2vec models available on the internet.
+Download one these models and unzip it, or look for other pretrained word2vec models available on the internet.
+
+#### Training your own model
+
+To train your own model, the provided `train_model.py` script can be used. First you'll need to prepare a data set that you want to train the model with. Your data should be split into sentences, one sentence per line, lower case with all punctuation removed. like the following example: 
+
+
+```text
+the quick brown fox jumps over the lazy dog
+jack and jill went up the hill to fetch a pail of water
+an apple a day keeps the doctor away
+to be or not to be that is the question
+a stitch in time saves nine
+early to bed and early to rise makes a man healthy wealthy and wise
+many more sentences should follow
+```
+
+After you have your input data prepared, you can build your model using the `train_model.py` command.  Example:
+
+
+```bash
+python train_model.py training_data.txt
+```
+
+The above command should produce the `training_data_model.vec` in the current director using the defaults.  To see the training options available use the `-h` flag to see the parameter options and help.
 
 ## Usage
 
-After installation, you can use the tool from the command line.
+After installation and download or training of a model, you can use the tool from the command line.
 
 ### Basic Command
 ```
@@ -68,3 +99,4 @@ embeddings-plot -m <model_path> -i <input_file> -o <output_file> --label
 ```
 embeddings-plot --model crawl-300d-2M.vec --input words.txt --output embedding-plot.html --labels --clusters 13 
 ```
+
