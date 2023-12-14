@@ -38,7 +38,7 @@ pip install embeddings_plot
 
 ### Embedding model
 
-To use this tool, you have to either train your own embedding model or use an existing pretrained model. This tool expected the models to be in word2vec format. 
+To use this tool, you have to either train your own embedding model or use an existing pretrained model. This utility expects the models to be in word2vec format. 
 
 #### Downloading existing pretrained models 
 
@@ -47,7 +47,7 @@ Two pretrained models ready to use are:
 - https://dl.fbaipublicfiles.com/fasttext/vectors-english/wiki-news-300d-1M.vec.zip
 - https://dl.fbaipublicfiles.com/fasttext/vectors-english/crawl-300d-2M.vec.zip
 
-Download one these models and unzip it, or look for other pretrained word2vec models available on the internet.
+Download one of these models and unzip it, or look for other pretrained word2vec models available on the internet.
 
 #### Training your own model
 
@@ -64,7 +64,7 @@ early to bed and early to rise makes a man healthy wealthy and wise
 many more sentences should follow
 ```
 
-After you have your input data prepared, you can build your model using the `train_model.py` command.  Example:
+The provided `prepare_data.py` script can help prepare data for training. After you have your input data prepared, you can build your model using the `train_model.py` command.  Example:
 
 
 ```bash
@@ -99,4 +99,3 @@ embeddings-plot -m <model_path> -i <input_file> -o <output_file> --label
 ```
 embeddings-plot --model crawl-300d-2M.vec --input words.txt --output embedding-plot.html --labels --clusters 13 
 ```
-
